@@ -34,6 +34,10 @@ body {
     /* transition: filter 0.3s ease-in-out, background-color 0.3s ease-in-out; */
 }
 
+body, body * {
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+}
+
 #theme-switch {
     height: 50px;
     width: 50px;
