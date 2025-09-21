@@ -31,7 +31,6 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    /* transition: filter 0.3s ease-in-out, background-color 0.3s ease-in-out; */
 }
 
 body, body * {
@@ -82,6 +81,14 @@ body, body * {
     display: block;
 }
 
+#password-title {
+    font-size: 32px;
+    font-weight: bold;
+    color: var(--dark-text-color);
+    margin-bottom: 20px;
+    transition: color 0.3s ease-in-out;
+}
+
 #generateButton {
     width: 200px;
     height: 50px;
@@ -119,6 +126,7 @@ body, body * {
 #passwordLabel {
     flex: 1;
     word-wrap: break-word;
+    transition: color 0.001s;
 }
 
 #passwordLabel:hover {
