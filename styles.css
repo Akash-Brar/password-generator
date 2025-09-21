@@ -198,6 +198,7 @@ body, body * {
     padding: 20px;
     box-sizing: border-box;
     transition: left 0.3s ease-in-out;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out, left 0.3s ease-in-out;
 }
 
 #historyPanel.show {
@@ -209,6 +210,7 @@ body, body * {
     margin-bottom: 20px;
     font-size: 20px;
     color: var(--dark-text-color);
+    transition: color 0.3s ease-in-out;
 }
 
 #historyList {
