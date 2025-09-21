@@ -1,0 +1,262 @@
+:root {
+    --light-text-color: #fff;
+    --dark-text-color: #333;
+    --grey: #666;
+    --accent-color: #fab846;
+    --dark-accent-color: #e8a93b;
+    --bg-image: url('')
+}
+
+.darkmode {
+    --light-text-color: #333;
+    --dark-text-color: #fff;
+    --grey: #666;
+    --accent-color: #fab846;
+    --dark-accent-color: #e8a93b;
+    --bg-image: url('')
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
+    background-color: var(--light-text-color);
+    font-family: Arial, sans-serif;
+    position: relative;
+    background-image: var(--bg-image);
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    /* transition: filter 0.3s ease-in-out, background-color 0.3s ease-in-out; */
+}
+
+#theme-switch {
+    height: 50px;
+    width: 50px;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background-color: var(--accent-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+}
+
+#theme-switch:hover {
+    cursor: pointer;
+}
+
+#theme-switch:active {
+    background-color: var(--dark-accent-color);
+}
+
+#theme-switch svg {
+    fill: var(--light-text-color);
+    transition: fill 0.3s;
+}
+
+#theme-switch:hover svg {
+    fill: var(--dark-text-color);
+}
+
+#theme-switch svg:last-child {
+    display: none;
+}
+
+.darkmode #theme-switch svg:first-child {
+    display: none;
+}
+
+.darkmode #theme-switch svg:last-child {
+    display: block;
+}
+
+#generateButton {
+    width: 200px;
+    height: 50px;
+    font-size: 18px;
+    padding: 10px;
+    border-radius: 8px;
+    border: 2px solid var(--accent-color);
+    background-color: var(--accent-color);
+    color: var(--light-text-color);
+    font-weight: 600;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+#generateButton:hover {
+    color: var(--dark-text-color);
+}
+
+#generateButton:active {
+    background-color: var(--dark-accent-color);
+}
+
+#passwordContainer {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--dark-text-color);
+    text-align: center;
+    padding: 10px;
+    gap: 10px;
+}
+
+#passwordLabel {
+    flex: 1;
+    word-wrap: break-word;
+}
+
+#passwordLabel:hover {
+    cursor: text;
+}
+
+#copyIcon {
+    cursor: pointer;
+    font-size: 24px;
+    color: var(--grey);
+    transition: color 0.3s;
+}
+
+#copyIcon:hover {
+    color: var(--dark-text-color);
+}
+
+#toast {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--dark-text-color);
+    color: var(--light-text-color);
+    padding: 15px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s;
+}
+
+#toast.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+#historyIcon {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 24px;
+    color: var(--light-text-color);
+    cursor: pointer;
+    transition: color 0.3s;
+    background-color: var(--accent-color);
+    padding: 10px;
+    border-radius: 50%;
+}
+
+#historyIcon:hover {
+    color: var(--dark-text-color);
+}
+
+#historyIcon:active {
+    background-color: var(--dark-accent-color);
+}
+
+#historyPanel {
+    position: fixed;
+    top: 0;
+    left: -300px;
+    width: 300px;
+    height: 100%;
+    background-color: var(--light-text-color);
+    box-shadow: 2px 0 6px rgba(0, 0, 0, 0.2);
+    overflow-y: auto;
+    padding: 20px;
+    box-sizing: border-box;
+    transition: left 0.3s ease-in-out;
+}
+
+#historyPanel.show {
+    left: 0;
+}
+
+#historyPanel h2 {
+    margin: 0;
+    margin-bottom: 20px;
+    font-size: 20px;
+    color: var(--dark-text-color);
+}
+
+#historyList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#historyList li {
+    padding: 10px 0;
+    border-bottom: 1px solid var(--light-text-color);
+    font-size: 16px;
+    color: var(--grey);
+}
+
+#closePanelButton {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    border: none;
+    cursor: pointer;
+    background-color: var(--accent-color);
+    padding: 4px;
+    border-radius: 50%;
+}
+
+#closePanelButton:active {
+    background-color: var(--dark-accent-color);
+}
+
+#closePanelButton svg {
+    fill: var(--light-text-color);
+    transition: fill 0.3s;
+}
+
+#closePanelButton:hover svg {
+    fill: var(--dark-text-color)
+}
+
+.history-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px;
+    border-bottom: 1px solid var(--light-text-color);
+}
+
+.password-text {
+    font-size: 16px;
+    color: var(--dark-text-color);
+    flex-grow: 1;
+}
+
+.copy-icon {
+    font-size: 18px;
+    cursor: pointer;
+    color: var(--grey);
+    margin-left: 10px;
+}
+
+.copy-icon:hover {
+    color: var(--dark-text-color);
+}
